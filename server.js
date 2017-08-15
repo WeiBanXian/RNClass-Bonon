@@ -12,6 +12,37 @@ http.createServer((req, res) => {
     res.end();
 }).listen(8082);
 
+	// {
+	// 	key: 4,
+	// 	type: 1,
+	// 	list: [
+	// 		{
+	// 			key: 11,
+	// 			text: 'ListHeaderComponent',
+	// 			pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
+	// 		},
+	// 		{
+	// 			key: 12,
+	// 			text: 'ListHeaderComponent',
+	// 			pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
+	// 		},
+	// 		{
+	// 			key: 13,
+	// 			text: 'ListHeaderComponent',
+	// 			pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
+	// 		},
+	// 		{
+	// 			key: 14,
+	// 			text: 'ListHeaderComponent',
+	// 			pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
+	// 		},
+	// 		{
+	// 			key: 15,
+	// 			text: 'ListHeaderComponent',
+	// 			pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
+	// 		},
+	// 	]
+	// },
 
 let data = [
 	{
@@ -43,37 +74,6 @@ let data = [
 		image: 'https://github.com/wix/react-native-navigation/raw/master/logo.png',
 		appraise: 9.0,
 		link: 'Fast & Furious2'
-	},
-	{
-		key: 4,
-		type: 1,
-		list: [
-			{
-				key: 11,
-				text: 'ListHeaderComponent',
-				pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
-			},
-			{
-				key: 12,
-				text: 'ListHeaderComponent',
-				pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
-			},
-			{
-				key: 13,
-				text: 'ListHeaderComponent',
-				pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
-			},
-			{
-				key: 14,
-				text: 'ListHeaderComponent',
-				pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
-			},
-			{
-				key: 15,
-				text: 'ListHeaderComponent',
-				pic: 'https://github.com/wix/react-native-navigation/raw/master/logo.png'
-			},
-		]
 	},
 	{
 		key: 5,

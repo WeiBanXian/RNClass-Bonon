@@ -68,32 +68,22 @@ class Fetch extends Component {
 		// })
 		this.fetch("http://10.1.5.195:8082/")
 		.then((res) => {
-			Alert.alert('', res,
+			return JSON.parse(res)
+		})
+		.then((resJson) => {
+			Alert.alert('', JSON.stringify(resJson, null, 1),
 			[
 				{
 					text: '点我有彩蛋',
 					onPress: () => {
-						this.setState({ data: JSON.parse(res) })
+						this.setState({ data: resJson })
 					}
 				}
 			])
-		}, (error) => {
+		})
+		.catch((error) => {
 			alert(error)
 		})
-		// .then((resJson) => {
-		// 	Alert.alert('', JSON.stringify(resJson, null, 1),
-		// 	[
-		// 		{
-		// 			text: '点我有彩蛋',
-		// 			onPress: () => {
-		// 				this.setState({ data: resJson })
-		// 			}
-		// 		}
-		// 	])
-		// })
-		// .catch((error) => {
-		// 	alert(error)
-		// })
 	}
 	
 	render() {
