@@ -13,32 +13,41 @@ import { connect } from 'react-redux';
 import CardSection from '../components/CardSection';
 import ListItem from '../components/ListItem';
 
+
+// for redux
 const mapStateToProps = state => {
     return { libraries: state.libraries };
 };
 
+// for setState
+import LibraryList from '../LibraryList.json';
+import * as actions from '../actions';
+
 @connect(mapStateToProps)
 class StateManage extends Component {
+    state = {
+        libraries: LibraryList
+    };
+
     static navigationOptions = {
 		title: 'State Management',
     };
 
-    renderItem({ item }) {        
-        console.log(item.id)
-        return <ListItem key={item.id} library={item} />;
-    }
+    renderItem = ({ item }) => {
+        // selectLibrary={id => this.setState(actions.selectLibraryState(id))}
+        return <ListItem library={item} />;
+    };
 
-    render() {
+    render() {        
+        // this.state.libraries
         return (
             <View style={styles.container}>
                 <FlatList
-                    removeClippedSubviews={false}
-                    enableEmptySections={true}
-                    renderItem={this.renderItem}
                     data={this.props.libraries}
+                    renderItem={this.renderItem}
+                    keyExtractor={item => item.id}
                     ItemSeparatorComponent={() => <View style={styles.separator}/>}
 					ListFooterComponent={() => <View style={styles.listFoot}/>}
-                    getItemLayout={(data, index) => ( {length: 45, offset: 45 * index, index} )}
                 />
             </View>
         );
@@ -71,5 +80,4 @@ const styles = StyleSheet.create({
 });
 
 
-
-export { StateManage};
+export default StateManage;

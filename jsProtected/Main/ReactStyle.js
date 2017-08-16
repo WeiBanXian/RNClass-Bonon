@@ -325,4 +325,4 @@ const styles = StyleSheet.create({
 });
 
 
-export { ReactStyle };
+export default ReactStyle;
