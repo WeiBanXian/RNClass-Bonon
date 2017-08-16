@@ -152,4 +152,4 @@ const styles = StyleSheet.create({
 });
 
 
-export { Fetch };
+export default Fetch;

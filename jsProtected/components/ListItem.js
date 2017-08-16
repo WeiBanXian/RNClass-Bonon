@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import CardSection from './CardSection';
 
+// for redux
 const mapStateToProps = (state, ownProps) => {
     const expanded = state.selectedLibraryId === ownProps.library.id;
     return { expanded };
@@ -15,9 +16,10 @@ const mapStateToProps = (state, ownProps) => {
 
 @connect(mapStateToProps, actions)
 class ListItem extends Component {
+    // setState这边会渲染8次！！
     renderDescription() {
         const { library, expanded } = this.props;
-
+        // if (library.selected) {
         if (expanded) {
             return (
                 <CardSection>
@@ -32,10 +34,10 @@ class ListItem extends Component {
     render() {
         const { titleStyle } = styles;
         const { id, title } = this.props.library;
-        // TouchableWithoutFeedback
+        // onPress={() => this.props.selectLibrary(id)}
         return (
             <TouchableOpacity
-                onPress={() => this.props.selectLibrary(id)}
+                onPress={this.props.selectLibrary.bind(this, id)}
                 activeOpacity={0.8}>
                 <View>
                     <CardSection>

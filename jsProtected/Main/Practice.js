@@ -119,4 +119,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export { Practice };
+export default Practice;

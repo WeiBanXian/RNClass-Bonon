@@ -181,4 +181,4 @@ const styles = StyleSheet.create({
 });
 
 
-export { Es6 };
+export default Es6;
