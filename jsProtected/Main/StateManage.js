@@ -19,7 +19,7 @@ import { observer, inject } from 'mobx-react';
 @observer
 class StateManage extends Component {
     static navigationOptions = {
-		title: 'State Management',
+		title: 'Mobx',
     };
 
     renderItem({ item }) {

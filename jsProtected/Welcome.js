@@ -21,7 +21,7 @@ class Welcome extends React.Component {
                 {key: "es6", page: 'Es6'},
                 {key: "fetch", page: 'Fetch'},
                 {key: "practice", page: 'Practice'},
-                {key: "Mobx", page: 'StateManage'}
+                {key: "State Management", page: 'StateManage'}
             ]} {...this.props}/>
             <Text style={styles.auther}>韦浩东 Bonon</Text>
         </View>
