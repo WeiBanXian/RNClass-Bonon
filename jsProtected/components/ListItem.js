@@ -4,21 +4,19 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
 import CardSection from './CardSection';
 
-const mapStateToProps = (state, ownProps) => {
-    const expanded = state.selectedLibraryId === ownProps.library.id;
-    return { expanded };
-};
+import { observer, inject } from 'mobx-react';
 
-@connect(mapStateToProps, actions)
+
+@inject('libraryStore')
+@observer
 class ListItem extends Component {
     renderDescription() {
-        const { library, expanded } = this.props;
+        const { library } = this.props;        
+        const { selected } = library;
 
-        if (expanded) {
+        if (selected) {
             return (
                 <CardSection>
                     <Text style={styles.description}>
@@ -32,10 +30,10 @@ class ListItem extends Component {
     render() {
         const { titleStyle } = styles;
         const { id, title } = this.props.library;
-        // TouchableWithoutFeedback
+
         return (
             <TouchableOpacity
-                onPress={() => this.props.selectLibrary(id)}
+                onPress={() => this.props.libraryStore.setSelectedLibrary(id)}
                 activeOpacity={0.8}>
                 <View>
                     <CardSection>

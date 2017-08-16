@@ -6,39 +6,38 @@ import {
     View,
     FlatList,
     Text,
-    TouchableOpacity,
+    TouchableOpacity
 } from 'react-native';
 
-import { connect } from 'react-redux';
 import CardSection from '../components/CardSection';
 import ListItem from '../components/ListItem';
 
-const mapStateToProps = state => {
-    return { libraries: state.libraries };
-};
+import { observer, inject } from 'mobx-react';
 
-@connect(mapStateToProps)
+
+@inject('libraryStore')
+@observer
 class StateManage extends Component {
     static navigationOptions = {
 		title: 'State Management',
     };
 
-    renderItem({ item }) {        
-        console.log(item.id)
-        return <ListItem key={item.id} library={item} />;
+    renderItem({ item }) {
+        return <ListItem key={item.id} library={item}/>;
     }
 
     render() {
+        // keyExtractor={(item, index) => item.id}
+        let { libraries } = this.props.libraryStore;
         return (
             <View style={styles.container}>
                 <FlatList
-                    removeClippedSubviews={false}
-                    enableEmptySections={true}
+                    data={libraries}
+                    keyExtractor={(item, index) => item.id}
                     renderItem={this.renderItem}
-                    data={this.props.libraries}
                     ItemSeparatorComponent={() => <View style={styles.separator}/>}
 					ListFooterComponent={() => <View style={styles.listFoot}/>}
-                    getItemLayout={(data, index) => ( {length: 45, offset: 45 * index, index} )}
+                    getItemLayout={(data, index) => ({length: 45, offset: 45 * index, index})}
                 />
             </View>
         );
@@ -72,4 +71,4 @@ const styles = StyleSheet.create({
 
 
 
-export { StateManage};
+export { StateManage };

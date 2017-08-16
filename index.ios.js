@@ -4,12 +4,12 @@ import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import React, { Component } from 'react';
 import Welcome from './jsProtected/Welcome.js';
 
+import stores from './jsProtected/stores';
+import { Provider } from 'mobx-react';
+
+// import from 'Stack'
 import { ReactStyle, Es6, Fetch, Practice, StateManage } from './jsProtected/Main/index';
 
-
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducers from './jsProtected/reducers';
 
 const Bonon = StackNavigator({
     Welcome: { screen: Welcome },
@@ -22,12 +22,10 @@ const Bonon = StackNavigator({
 
 
 class App extends Component {
-    store = createStore(reducers);
-
     render() {
         return (
-            <Provider store={this.store}>
-            <Bonon />
+            <Provider {...stores}>
+                <Bonon />
             </Provider>
         );
     }
