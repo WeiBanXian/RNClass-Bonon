@@ -1,7 +1,7 @@
 // for setState
 export const selectLibraryState = libraryId => state => {
 	const libraries = state.libraries.map(library => {
-      	if (library.id != libraryId ) {
+      	if (library.id != libraryId) {
             return {
                 ...library,
                 selected: false
