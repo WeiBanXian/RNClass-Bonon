@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import CardSection from '../components/CardSection';
 import ListItem from '../components/ListItem';
 
 
@@ -38,7 +37,7 @@ class StateManage extends Component {
         return <ListItem library={item} />;
     };
 
-    render() {        
+    render() {
         // this.state.libraries
         return (
             <View style={styles.container}>
@@ -58,13 +57,6 @@ class StateManage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF'
-    },
-    itemText: {
-        marginVertical: 15,
-        fontSize: 22,
-        color: '#666',
-        textAlign: 'center',
         backgroundColor: '#F5FCFF'
     },
     listFoot: {

@@ -20,6 +20,8 @@ const Bonon = StackNavigator({
     StateManage: { screen: Main.StateManage }
 });
 
+// createStore(counter, 42);初始值
+
 class App extends Component {
     store = createStore(reducers);
 
