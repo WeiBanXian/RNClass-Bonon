@@ -16,7 +16,6 @@ const mapStateToProps = (state, ownProps) => {
 
 @connect(mapStateToProps, actions)
 class ListItem extends Component {
-    // setState这边会渲染8次！！
     renderDescription() {
         const { library, expanded } = this.props;
         // if (library.selected) {
